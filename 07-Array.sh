@@ -5,8 +5,8 @@ places=("kerala" "Andhra" "Telangana" "Bangalore" "Madhurai")
 
 echo i want to visit ${places[0]} this year
 
-echo i want to visit all the below places 
-${places[@]}
+echo i want to visit all the below locations 
+${places[%]}
 
 #using arguments just for practice
 
