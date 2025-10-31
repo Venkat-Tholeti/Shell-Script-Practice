@@ -9,10 +9,10 @@ number4=50
 Timestamp=$(date)
 
 Total=$(($number1+$number2))
-Total=$(($number3-$number4))
+Minus=$(($number3-$number4))
 
 echo Addition of $number1 and $number2 is $Total
-echo Subtraction of $number3 and $number4 is $Total
+echo Subtraction of $number3 and $number4 is $Minus
 
 echo This script ran on $Timestamp
 
