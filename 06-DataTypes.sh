@@ -1,7 +1,7 @@
 #!/bin/bash
 
-number1=10
-number2=20
+number1=$1
+number2=$2
 
 Timestamp=$(date)
 
