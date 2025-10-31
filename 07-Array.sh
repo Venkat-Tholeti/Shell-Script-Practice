@@ -5,6 +5,9 @@ places=("kerala" "Andhra" "Telangana" "Bangalore" "Madhurai")
 
 echo i want to visit ${places[0]} this year
 
+echo i want to visit all the below places 
+${places[@]}
+
 #using arguments just for practice
 
 places=$1
