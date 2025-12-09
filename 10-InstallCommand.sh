@@ -21,15 +21,26 @@ then
    echo "MYSQL already INSTALLED"
    exit 1
 else 
-   echo "MYSQL is NOT INSTALLED"
+   echo "MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
+   
+   sleep 5
+   
+   dnf install mysql -y
+   if [ $? -eq 0 ]
+   then 
+       echo "MYSQL installation is SUCCESS"
+   else 
+       echo "FAILED to install MYSQL"
+       exit 1
+    fi
 fi
 
-dnf install mysql -y
+# dnf install mysql -y
 
-if [ $? -eq 0 ]
-then 
-    echo "MYSQL installation is SUCCESS"
-else 
-    echo "FAILED to install MYSQL"
-    exit 1
-fi
+# if [ $? -eq 0 ]
+# then 
+#     echo "MYSQL installation is SUCCESS"
+# else 
+#     echo "FAILED to install MYSQL"
+#     exit 1
+# fi
