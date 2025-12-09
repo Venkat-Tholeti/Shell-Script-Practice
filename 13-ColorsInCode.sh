@@ -5,17 +5,17 @@
 
 R="\e[31m"
 G="\e[32m"
-y="\e[33m"
+Y="\e[33m"
 N="\e[0m"
 
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
 then 
-   echo -e "$G ERROR: USER NEED TO SWITCH TO ROOT ACCESS"
+   echo -e "$R ERROR: USER NEED TO SWITCH TO ROOT ACCESS"
    exit 1 
 else
-   echo "USER HAS ROOT PRIVILEGES"
+   echo -e "$G USER HAS ROOT PRIVILEGES"
 fi
 
 #FUNCTION NAME WE GAVE AS VALIDATE & NEWLINE (name our choice)
@@ -25,9 +25,9 @@ fi
 VALIDATE(){
     if [ $1 -eq 0 ]
     then
-        echo "$2 INSTALLATION IS SUCCESS"
+        echo -e "$G $2 INSTALLATION IS SUCCESS"
     else 
-        echo "$2 INSTALLATION IS FAILURE"
+        echo -e "$R $2 INSTALLATION IS FAILURE"
         exit 1
     fi
 }
@@ -40,9 +40,9 @@ NEWLINE(){
 dnf list installed mysql
 if [ $? -eq 0 ]
 then
-   echo "MYSQL PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
+   echo -e "$G MYSQL PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
 else 
-   echo "MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
+   echo -e "$Y MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
    sleep 5
    dnf install mysql -y
    VALIDATE $? "mysql"
@@ -51,9 +51,9 @@ NEWLINE
 dnf list installed python3
 if [ $? -eq 0 ]
 then
-   echo "PYTHON3 PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
+   echo -e "$G PYTHON3 PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
 else 
-   echo "PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
+   echo -e "$Y PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
    sleep 5
    dnf install python3 -y
    VALIDATE $? "python3"
@@ -62,9 +62,9 @@ NEWLINE
 dnf list installed nginx
 if [ $? -eq 0 ]
 then
-   echo "NGINX PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
+   echo -e "$G NGINX PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
 else 
-   echo "NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
+   echo -e "$Y NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
    sleep 5
    dnf install nginx -y
    VALIDATE $? "nginx"
