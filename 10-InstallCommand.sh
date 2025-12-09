@@ -15,7 +15,16 @@ else
    echo "USER HAS ROOT PRIVILEGES"
 fi
 
-dnf install mysqlhffkks -y
+dnf list installed mysql
+if [ $? -eq 0 ]
+then
+   echo "MYSQL already INSTALLED"
+   exit 1
+else 
+   echo "MYSQL is NOT INSTALLED"
+fi
+
+dnf install mysql -y
 
 if [ $? -eq 0 ]
 then 
