@@ -27,6 +27,10 @@ VALIDATE(){
     fi
 }
 
+newline(){
+      echo ""
+}
+
 dnf list installed mysql
 if [ $? -eq 0 ]
 then
@@ -36,6 +40,7 @@ else
    sleep 5
    dnf install mysql -y
    VALIDATE $? "mysql"
+   newline
 fi
 
 dnf list installed python3
@@ -47,6 +52,7 @@ else
    sleep 5
    dnf install python3 -y
    VALIDATE $? "python3"
+   newline
 fi
 
 dnf list installed nginx
@@ -58,4 +64,5 @@ else
    sleep 5
    dnf install nginx -y
    VALIDATE $? "nginx"
+   newline
 fi
