@@ -48,7 +48,6 @@ else
    sleep 5
    dnf install python3 -y
    VALIDATE $? "python3"
-   newline
 fi
 
 echo
@@ -62,5 +61,4 @@ else
    sleep 5
    dnf install nginx -y
    VALIDATE $? "nginx"
-   newline
 fi
