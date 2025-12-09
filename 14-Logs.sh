@@ -12,17 +12,17 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER
-echo "script started executing at $(date)"
+echo "script started executing at $(date)" &>>$LOG_FILE
 
 
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
 then 
-   echo -e "$R ERROR: USER NEED TO SWITCH TO ROOT ACCESS $N" 
+   echo -e "$R ERROR: USER NEED TO SWITCH TO ROOT ACCESS $N" | tee -a $LOG_FILE
    exit 1 
 else
-   echo -e "$G USER HAS ROOT PRIVILEGES $N" 
+   echo -e "$G USER HAS ROOT PRIVILEGES $N" | tee -a $LOG_FILE
 fi
 
 #FUNCTION NAME WE GAVE AS VALIDATE & NEWLINE (name our choice)
@@ -32,9 +32,9 @@ fi
 VALIDATE(){
     if [ $1 -eq 0 ]
     then
-        echo -e "$G $2 INSTALLATION IS SUCCESS $N" 
+        echo -e "$G $2 INSTALLATION IS SUCCESS $N" | tee -a $LOG_FILE
     else 
-        echo -e "$R $2 INSTALLATION IS FAILURE $N" 
+        echo -e "$R $2 INSTALLATION IS FAILURE $N" | tee -a $LOG_FILE
         exit 1
     fi
 }
@@ -44,35 +44,35 @@ NEWLINE(){
       echo ""
 }
 
-dnf list installed mysql
+dnf list installed mysql &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-   echo -e "$G MYSQL PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" 
+   echo -e "$G MYSQL PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" | tee -a $LOG_FILE
 else 
-   echo -e "$Y MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" 
+   echo -e "$Y MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" | tee -a $LOG_FILE
    sleep 5
-   dnf install mysql -y
+   dnf install mysql -y &>>$LOG_FILE
    VALIDATE $? "mysql"
 fi
 NEWLINE
-dnf list installed python3
+dnf list installed python3 &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-   echo -e "$G PYTHON3 PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" 
+   echo -e "$G PYTHON3 PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" | tee -a $LOG_FILE
 else 
-   echo -e "$Y PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" 
+   echo -e "$Y PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" | tee -a $LOG_FILE
    sleep 5
-   dnf install python3 -y
+   dnf install python3 -y &>>$LOG_FILE
    VALIDATE $? "python3"
 fi
 NEWLINE
-dnf list installed nginx
+dnf list installed nginx &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-   echo -e "$G NGINX PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" 
+   echo -e "$G NGINX PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" | tee -a $LOG_FILE
 else 
-   echo -e "$Y NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" 
+   echo -e "$Y NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" | tee -a $LOG_FILE
    sleep 5
-   dnf install nginx -y
+   dnf install nginx -y &>>$LOG_FILE
    VALIDATE $? "nginx"
 fi
