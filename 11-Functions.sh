@@ -24,13 +24,7 @@ VALIDATE(){
     else 
         echo "$2 INSTALLATION IS FAILURE"
         exit 1
-        newline
     fi
-}
-
-newline(){
-      echo ""
-}
 
 dnf list installed mysql
 if [ $? -eq 0 ]
@@ -41,8 +35,9 @@ else
    sleep 5
    dnf install mysql -y
    VALIDATE $? "mysql"
-   newline
 fi
+
+echo
 
 dnf list installed python3
 if [ $? -eq 0 ]
@@ -55,6 +50,8 @@ else
    VALIDATE $? "python3"
    newline
 fi
+
+echo
 
 dnf list installed nginx
 if [ $? -eq 0 ]
