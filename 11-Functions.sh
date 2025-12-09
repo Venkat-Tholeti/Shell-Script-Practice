@@ -58,3 +58,4 @@ else
    dnf install nginx -y
    VALIDATE $? "nginx"
 fi
+echo
