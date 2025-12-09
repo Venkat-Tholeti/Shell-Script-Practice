@@ -35,7 +35,7 @@ else
    echo "MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
    sleep 5
    dnf install mysql -y
-   VALIDATE $? "MYSQL"
+   VALIDATE $? "mysql"
 fi
 
 dnf list installed python3
