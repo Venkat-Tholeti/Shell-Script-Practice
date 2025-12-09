@@ -12,17 +12,17 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER
-echo "script started executing at $(date) &>>$LOG_FILE
+echo "script started executing at $(date) 
 
 
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
 then 
-   echo -e "$R ERROR: USER NEED TO SWITCH TO ROOT ACCESS $N" &>>$LOG_FILE
+   echo -e "$R ERROR: USER NEED TO SWITCH TO ROOT ACCESS $N" 
    exit 1 
 else
-   echo -e "$G USER HAS ROOT PRIVILEGES $N" &>>$LOG_FILE
+   echo -e "$G USER HAS ROOT PRIVILEGES $N" 
 fi
 
 #FUNCTION NAME WE GAVE AS VALIDATE & NEWLINE (name our choice)
@@ -32,9 +32,9 @@ fi
 VALIDATE(){
     if [ $1 -eq 0 ]
     then
-        echo -e "$G $2 INSTALLATION IS SUCCESS $N" &>>$LOG_FILE
+        echo -e "$G $2 INSTALLATION IS SUCCESS $N" 
     else 
-        echo -e "$R $2 INSTALLATION IS FAILURE $N" &>>$LOG_FILE
+        echo -e "$R $2 INSTALLATION IS FAILURE $N" 
         exit 1
     fi
 }
@@ -47,9 +47,9 @@ NEWLINE(){
 dnf list installed mysql
 if [ $? -eq 0 ]
 then
-   echo -e "$G MYSQL PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" &>>$LOG_FILE
+   echo -e "$G MYSQL PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" 
 else 
-   echo -e "$Y MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" &>>$LOG_FILE
+   echo -e "$Y MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" 
    sleep 5
    dnf install mysql -y
    VALIDATE $? "mysql"
@@ -58,9 +58,9 @@ NEWLINE
 dnf list installed python3
 if [ $? -eq 0 ]
 then
-   echo -e "$G PYTHON3 PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" &>>$LOG_FILE
+   echo -e "$G PYTHON3 PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" 
 else 
-   echo -e "$Y PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" &>>$LOG_FILE
+   echo -e "$Y PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" 
    sleep 5
    dnf install python3 -y
    VALIDATE $? "python3"
@@ -69,9 +69,9 @@ NEWLINE
 dnf list installed nginx
 if [ $? -eq 0 ]
 then
-   echo -e "$G NGINX PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" &>>$LOG_FILE
+   echo -e "$G NGINX PACKAGE ALREADY INSTALLED...NOTHING TO DO! $N" 
 else 
-   echo -e "$Y NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" &>>$LOG_FILE
+   echo -e "$Y NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS $N" 
    sleep 5
    dnf install nginx -y
    VALIDATE $? "nginx"
