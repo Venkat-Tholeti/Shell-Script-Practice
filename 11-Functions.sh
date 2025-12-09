@@ -42,7 +42,6 @@ dnf list installed python3
 if [ $? -eq 0 ]
 then
    echo "PYTHON3 already INSTALLED"
-   exit 1
 else 
    echo "PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
    sleep 5
@@ -54,7 +53,6 @@ dnf list installed nginx
 if [ $? -eq 0 ]
 then
    echo "NGINX already INSTALLED"
-   exit 1
 else 
    echo "NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
    sleep 5
