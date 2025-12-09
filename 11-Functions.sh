@@ -22,28 +22,28 @@ VALIDATE(){
     then
         echo "$2 INSTALLATION IS SUCCESS"
     else 
-        echo "$2 INSTALLATION IS  FAILURE"
+        echo "$2 INSTALLATION IS FAILURE"
+        exit 1
     fi
 }
 
 dnf list installed mysql
 if [ $? -eq 0 ]
 then
-   echo "MYSQL PACKAGE EXISTS"
+   echo "MYSQL PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
 else 
-   echo "MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
+   echo "MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
    sleep 5
    dnf install mysql -y
    VALIDATE $? "mysql"
 fi
 
-
 dnf list installed python3
 if [ $? -eq 0 ]
 then
-   echo "PYTHON3 PACKAGE EXISTS"
+   echo "PYTHON3 PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
 else 
-   echo "PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
+   echo "PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
    sleep 5
    dnf install python3 -y
    VALIDATE $? "python3"
@@ -52,9 +52,9 @@ fi
 dnf list installed nginx
 if [ $? -eq 0 ]
 then
-   echo "NGINX PACKAGE EXISTS"
+   echo "NGINX PACKAGE ALREADY INSTALLED...NOTHING TO DO!"
 else 
-   echo "NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
+   echo "NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
    sleep 5
    dnf install nginx -y
    VALIDATE $? "nginx"
