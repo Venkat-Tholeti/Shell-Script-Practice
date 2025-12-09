@@ -8,3 +8,4 @@ echo "home directory is $HOME"
 echo "PID of the script is $$"
 sleep 10 &
 echo "PID of the last command ranin background is $!"
+Exit status of the command $?
