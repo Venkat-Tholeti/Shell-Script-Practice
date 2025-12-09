@@ -8,7 +8,7 @@
 
 Number=$1
 
-if [ $Number -lteq 10 ]
+if [ $Number -lt 10 ]
 then 
     echo "Input number is less than 10"
 else
