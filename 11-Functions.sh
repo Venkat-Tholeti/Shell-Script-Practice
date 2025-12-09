@@ -18,11 +18,11 @@ fi
 #VALIDATE $? MYSQL  --> here 1st argument is exit status $1 = $?, 2nd argument is what we tried to install $2 =MYSL, PYTHON3 , NGINX
 
 VALIDATE(){
-    if [ $1 -ne 0 ]
+    if [ $1 -eq 0 ]
     then
-        echo "$2 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
-    else 
         echo "$2 INSTALLATION IS SUCCESS"
+    else 
+        echo "$2 INSTALLATION IS  FAILURE"
     fi
 }
 
