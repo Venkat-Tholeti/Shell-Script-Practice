@@ -57,5 +57,5 @@ else
    echo "NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
    sleep 5
    dnf install nginx -y
-   VALDIATE $? "nginx"
+   VALIDATE $? "nginx"
 fi
