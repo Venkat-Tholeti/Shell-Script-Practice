@@ -12,7 +12,7 @@ USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
 then 
-   echo -e "$R ERROR: USER NEED TO SWITCH TO ROOT ACCESS"
+   echo -e "$G ERROR: USER NEED TO SWITCH TO ROOT ACCESS"
    exit 1 
 else
    echo "USER HAS ROOT PRIVILEGES"
