@@ -15,7 +15,7 @@ else
    echo "USER HAS ROOT PRIVILEGES"
 fi
 
-dnf install mysql -y
+dnf install mysqlhffkks -y
 
 if [ $? -eq 0 ]
 then 
