@@ -37,6 +37,7 @@ else
    VALIDATE $? "mysql"
 fi
 
+
 dnf list installed python3
 if [ $? -eq 0 ]
 then
