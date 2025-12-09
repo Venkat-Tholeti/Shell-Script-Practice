@@ -45,7 +45,8 @@ NEWLINE(){
       echo ""
 }
 
-for package in ${PACKAGES[@]}
+#for package in ${PACKAGES[@]} - REGULAR LOOP
+for package in $@  # To pass the packages as arguments rather than including in script 
 do
   dnf list installed $package &>>$LOG_FILE
  if [ $? -eq 0 ]
