@@ -20,9 +20,9 @@ fi
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo "$2 is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
+        echo "$2 is NOT INSTALLED, PROCEEDING TO INSTALLATION IN 5 SECONDS"
     else 
-        echo "$2 already INSTALLED"
+        echo "$2 INSTALLATION IS SUCCESS"
         exit 1 
     fi
 }
