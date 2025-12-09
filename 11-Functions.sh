@@ -24,6 +24,7 @@ VALIDATE(){
     else 
         echo "$2 INSTALLATION IS FAILURE"
         exit 1
+        newline
     fi
 }
 
