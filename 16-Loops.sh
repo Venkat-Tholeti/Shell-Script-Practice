@@ -15,7 +15,6 @@ PACKAGES=("mysql" "python3" "nginx" "httpd")
 mkdir -p $LOGS_FOLDER
 echo -e "$G script started executing at $(date)" &>>$LOG_FILE
 echo -e "$Y Logs stored at  $LOG_FILE"
-NEWLINE
 
 USERID=$(id -u)
 
