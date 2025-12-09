@@ -23,14 +23,14 @@ VALIDATE(){
         echo "$2 is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
     else 
         echo "$2 already INSTALLED"
-        exit 1    
+        exit 1 
     fi
 }
 
 dnf list installed mysql
 if [ $? -eq 0 ]
 then
-   echo "MYSQL already INSTALLED"
+   echo "MYSQL PACKAGE EXISTS"
 else 
    echo "MYSQL is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
    sleep 5
@@ -41,7 +41,7 @@ fi
 dnf list installed python3
 if [ $? -eq 0 ]
 then
-   echo "PYTHON3 already INSTALLED"
+   echo "PYTHON3 PACKAGE EXISTS"
 else 
    echo "PYTHON3 is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
    sleep 5
@@ -52,7 +52,7 @@ fi
 dnf list installed nginx
 if [ $? -eq 0 ]
 then
-   echo "NGINX already INSTALLED"
+   echo "NGINX PACKAGE EXISTS"
 else 
    echo "NGINX is NOT INSTALLED, PROCEEDING TO INSTALLATION NOW"
    sleep 5
