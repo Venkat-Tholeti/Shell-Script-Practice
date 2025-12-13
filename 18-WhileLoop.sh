@@ -8,7 +8,7 @@
 #    a=`expr $a + 1`
 # done
 
-while IFS= read -r line
+while IFS= read -r line #IFS - INTERNAL FIELD SEPERATOR USED TO READ LINE BY LINE OUTPUT
 do
     echo $line
 done < 17-Set.sh
