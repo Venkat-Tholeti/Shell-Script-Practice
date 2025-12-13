@@ -6,6 +6,10 @@ BACKUP_DIRECTORY="/backup"
 DAYS=14
 LOGFILE="/var/log/backup_cleanup.log"
 
+
+#cp --parents --> ORIGINAL DIRECTORY STRUCTURE WILL BE MAINTAINED IN BACKUP ALSO
+#EXAMPLE /data/logs/app.log ----> /backup/data/logs/app.log
+
 USERID=$(id -u)
 
 ROOTACCESS_CHECK(){
@@ -41,7 +45,3 @@ else
     echo -e "$R DELETION FAILED $N"
 
 echo "------------SCRIPT ENDED: $(date)-----------" | tee -a $LOGFILE
-
-
-#cp --parents --> ORIGINAL DIRECTORY STRUCTURE WILL BE MAINTAINED IN BACKUP ALSO
-#EXAMPLE /data/logs/app.log ----> /backup/data/logs/app.log
