@@ -16,6 +16,7 @@ then
 else
    echo -e "$G USER HAS ROOT PRIVILEGES $N" | tee -a $LOGFILE
 fi
+}
 
 echo "-------SCRIPT STARTED: $(date)----------" &>>$LOGFILE
 
@@ -32,5 +33,3 @@ echo "------------SCRIPT ENDED: $(date)-----------" &>>$LOGFILE
 
 #cp --parents --> ORIGINAL DIRECTORY STRUCTURE WILL BE MAINTAINED IN BACKUP ALSO
 #EXAMPLE /data/logs/app.log ----> /backup/data/logs/app.log
-
-
