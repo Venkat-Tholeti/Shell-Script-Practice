@@ -18,7 +18,7 @@ else
 fi
 }
 
-echo "-------SCRIPT STARTED: $(date)----------"  | tee -a &>>$LOGFILE
+echo "-------SCRIPT STARTED: $(date)----------"  | tee -a $LOGFILE
 
 #STEP1 --> FIND AND BACKUP FILES
 
@@ -40,7 +40,7 @@ then
 else 
     echo -e "$R DELETION FAILED $N"
 
-echo "------------SCRIPT ENDED: $(date)-----------" | tee -a &>>$LOGFILE
+echo "------------SCRIPT ENDED: $(date)-----------" | tee -a $LOGFILE
 
 
 #cp --parents --> ORIGINAL DIRECTORY STRUCTURE WILL BE MAINTAINED IN BACKUP ALSO
