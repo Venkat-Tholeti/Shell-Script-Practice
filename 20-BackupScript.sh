@@ -18,17 +18,29 @@ else
 fi
 }
 
-echo "-------SCRIPT STARTED: $(date)----------" &>>$LOGFILE
+echo "-------SCRIPT STARTED: $(date)----------"  | tee -a $LOGFILE
 
 #STEP1 --> FIND AND BACKUP FILES
 
 find $SOURCE_DIRECTORY -type f -mtime +$DAYS -exec cp --parents {} $BACKUP_DIRECTORY \; &>>$LOGFILE
 
-#STEP2 --> VERIFY THE BACKUP AND DELETE FILES IN ORIGINAL FOLDER
+if [ $? -eq 0 ]
+then 
+   echo -e "$G BACKUP SUCCESS $N"
+else 
+    echo -e "$R BACKUP FAILED $N"
 
-#find $SOURCE_DIRECTORY -type f -mtime +$DAYS -exec rm -rf {} \; &>>$LOGFILE
+STEP2 --> VERIFY THE BACKUP AND DELETE FILES IN ORIGINAL FOLDER
 
-echo "------------SCRIPT ENDED: $(date)-----------" &>>$LOGFILE
+find $SOURCE_DIRECTORY -type f -mtime +$DAYS -exec rm -rf {} \; &>>$LOGFILE
+
+if [ $? -eq 0 ]
+then 
+   echo -e "$G DELETION SUCCESS $N"
+else 
+    echo -e "$R DELETION FAILED $N"
+
+echo "------------SCRIPT ENDED: $(date)-----------" &>> | tee -a $LOGFILE
 
 
 #cp --parents --> ORIGINAL DIRECTORY STRUCTURE WILL BE MAINTAINED IN BACKUP ALSO
