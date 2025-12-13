@@ -33,6 +33,7 @@ then
    echo -e "$G BACKUP SUCCESS $N"
 else 
     echo -e "$R BACKUP FAILED $N"
+fi
 
 #STEP2 --> VERIFY THE BACKUP AND DELETE FILES IN ORIGINAL FOLDER
 
@@ -43,5 +44,6 @@ then
    echo -e "$G DELETION SUCCESS $N"
 else 
     echo -e "$R DELETION FAILED $N"
+fi
 
 echo "------------SCRIPT ENDED: $(date)-----------" 
