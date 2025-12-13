@@ -14,3 +14,4 @@ then
 else
     echo "Input number is not less than 10"
 fi
+

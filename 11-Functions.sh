@@ -13,7 +13,7 @@ else
    echo "USER HAS ROOT PRIVILEGES"
 fi
 
-#FUNCTION NAME WE GAVE AS VALIDATE
+#FUNCTION NAME WE GAVE AS VALIDATE & NEWLINE (name our choice)
 # we can provide arguments to function as we do it for script
 #VALIDATE $? MYSQL  --> here 1st argument is exit status $1 = $?, 2nd argument is what we tried to install $2 =MYSL, PYTHON3 , NGINX
 
@@ -27,6 +27,7 @@ VALIDATE(){
     fi
 }
 
+#For gap between tasks we can use this below function or simply we can add echo or echo "" after end of task 
 NEWLINE(){
       echo ""
 }
