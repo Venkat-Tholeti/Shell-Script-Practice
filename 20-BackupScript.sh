@@ -6,6 +6,17 @@ BACKUP_DIRECTORY="/backup"
 DAYS=14
 LOGFILE="/var/log/backup_cleanup.log"
 
+USERID=$(id -u)
+
+ROOTACCESS_CHECK(){
+if [ $USERID -ne 0 ]
+then 
+   echo -e "$R ERROR: USER NEED TO SWITCH TO ROOT ACCESS $N" | tee -a $LOGFILE
+   exit 1 
+else
+   echo -e "$G USER HAS ROOT PRIVILEGES $N" | tee -a $LOGFILE
+fi
+
 echo "-------SCRIPT STARTED: $(date)----------" &>>$LOGFILE
 
 #STEP1 --> FIND AND BACKUP FILES
