@@ -46,4 +46,4 @@ else
     echo -e "$R DELETION FAILED $N"
 fi
 
-echo "------------SCRIPT ENDED: $(date)-----------" 
+echo "------------SCRIPT ENDED: $(date)-----------"
